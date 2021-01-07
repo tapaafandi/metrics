@@ -10,8 +10,8 @@ jobs:
       - uses: tapaafandi/metrics@latest
         with:
           filename: metrics.svg
-          token: $secrets.METRICS_TOKEN
-          committer_token: $secrets.GITHUB_TOKEN
+          token: ${{ secrets.METRICS_TOKEN }}
+          committer_token: ${{ secrets.GITHUB_TOKEN }}
           base: "header, repositories"
 
           # Options
