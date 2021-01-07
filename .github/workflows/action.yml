@@ -7,10 +7,23 @@ jobs:
   github-metrics:
     runs-on: ubuntu-latest
     steps:
-      # See action.yml for all options
       - uses: lowlighter/metrics@latest
         with:
-          # Your GitHub token
+          # You'll need to setup a personal token in your secrets.
           token: ${{ secrets.METRICS_TOKEN }}
-          # GITHUB_TOKEN is a special auto-generated token restricted to current repository, which is used to push files in it
+          # GITHUB_TOKEN is a special auto-generated token used for commits
           committer_token: ${{ secrets.GITHUB_TOKEN }}
+
+          # Options
+          user: tapaafandi
+          template: classic
+          base: header, activity
+          config_timezone: Asia/Jakarta
+          plugin_languages: yes
+          plugin_posts: yes
+          plugin_posts_limit: 4
+          plugin_posts_source: dev.to
+          plugin_stars: yes
+          plugin_stars_limit: 4
+          plugin_tweets: yes
+          plugin_tweets_limit: 2
