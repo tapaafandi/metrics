@@ -1,22 +1,3 @@
-# Visit https://github.com/lowlighter/metrics/blob/master/action.yml for full reference
-inputs:
-  # Filepath of generated metrics (relative to repository root)
-  filename:
-    description: Path of SVG image output
-    default: github-metrics.svg
-
-  # Optimize SVG image with SVGO  (minify and remove useless attributes and spaces)
-  # Some templates may not support this option
-  optimize:
-    description: Optimize SVG image
-    default: yes
-    
-    # Coding habits plugin
-  # Search in your recent activity what've recently did and deduce facts/charts
-  plugin_habits:
-    description: Enable coding habits metrics
-    default: no
-    
 name: Metrics
 on:
   # Schedule updates
@@ -29,8 +10,8 @@ jobs:
       - uses: tapaafandi/metrics@latest
         with:
           filename: metrics.svg
-          token: ${{ secrets.METRICS_TOKEN }}
-          committer_token: ${{ secrets.GITHUB_TOKEN }}
+          token: $secrets.METRICS_TOKEN
+          committer_token: $secrets.GITHUB_TOKEN
           base: "header, repositories"
 
           # Options
